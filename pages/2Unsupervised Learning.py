@@ -63,16 +63,18 @@ def app():
         silhouette_score = metrics.silhouette_score(X, y_kmeans)
         st.write("K-means Silhouette Score:", silhouette_score)
 
-        text = """**Within-Cluster Sum of Squares (WCSS): {wcss}**
+        text = """**Within-Cluster Sum of Squares (WCSS): 288310.3478804381 \n
         This value alone doesn't tell the whole story. A lower WCSS generally indicates tighter 
         clusters, but it depends on the scale of your data and the number of clusters used (k).
-        \n**K-mmeans Silhouette Score: {silhouette_score}*
+
+        \n**K-mmeans Silhouette Score: 0.5269102770307551 \n
         * This score provides a more interpretable measure of cluster quality. It 
         ranges from -1 to 1, where:
         * Values closer to 1 indicate well-separated clusters.
         * Values around 0 suggest clusters are indifferently assigned (data points could belong to either cluster).
         * Negative values indicate poorly separated clusters (data points in a cluster are closer to points in other clusters).
-        In this case, a Silhouette Score of 0.5528 suggests:
+        
+        In this case, a Silhouette Score of 0.5269 suggests:
         * **Moderately separated clusters:** The data points within a cluster are somewhat closer to their centroid than to centroids of other clusters. There's some separation, but it's not perfect
         * **Potential for improvement:** You might consider exploring different numbers of clusters (k) or using different initialization methods for K-means to see if a better clustering solution can be achieved with a higher Silhouette Score (closer to 1).
         * The WineQT dataset, with its various physicochemical measurements, offers a good opportunity to test clustering. A Silhouette Score above 0.5 is typically considered decent, but achieving scores closer to 1 would indicate very well-defined clusters.
